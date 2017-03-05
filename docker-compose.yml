@@ -1,0 +1,20 @@
+version: '2'
+services:
+  app:
+    build: ./appimage/
+    links:
+      - db
+    volumes:
+      - ./app:/mnt/app
+  web:
+    build: ./webimage/
+    volumes: 
+      - ./web:/mnt/web
+    links:
+      - db
+    ports:
+      - 5000:5000
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017

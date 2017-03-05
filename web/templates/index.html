@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Twitter Influencers</title>
+	<!-- favicon -->
+	<link rel="shortcut icon" href={{ url_for('static', filename='1487506015_twitter.ico') }} />  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href={{ url_for('static', filename='bootstrap.min.css') }}>
+  <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <h3 class="mainHeader">Twitter Influencers and Trends in India</h3>
+    </div>
+    
+  </div>
+</nav>
+  
+<div class="container">
+		<div class="row"> 
+			<div class="col-md-3">
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="titleSec">
+								<h2>Top Trends in India</h2>
+							</div>						  		
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Mumbai</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Mumbai %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+ 				</div>
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Kolkata</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Kolkata %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+				 <div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Chennai</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in chennai %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Amritsar</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Amritsar %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+				 <div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Srinagar</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Srinagar %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Ranchi</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Ranchi %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+
+
+
+ 		  	</div>
+
+		  	<div class="col-md-6">
+
+				<section class="topListData">
+  					<div class="titleSec">
+						<h2>Top Influencers in India</h2>
+					</div>		  		
+		  			<div class="panel">
+		  				<div class="panel-body">
+
+		  					<ul class="listMainCont">
+		  					{% for result in results %}
+		  						<li><a href="https://twitter.com/search?q={{ result['screen_name'] }}">{{ result['Name'] }}<span>@{{ result['screen_name'] }}</span></a><h5 class="truncate" title="{{ result['Description'] }}">{{ result['Description'] }}</h5></li>
+		  					{% endfor %}
+		  					</ul>
+		  				</div>
+		  			</div>
+				</section>
+			</div>
+
+
+			<div class="col-md-3">
+			
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="titleSec">
+								<h2>Top Trends in India</h2>
+							</div>						  		
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">India</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in India %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+ 				</div>
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Delhi</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Delhi %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Pune</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Pune %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+ 
+
+ 				
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Bangalore</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Bangalore %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+				 <div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Hyderabad</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Hyderabad %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+ 				<div class="row">
+					<div class="col-md-12">
+						<section class="bottomListData" id="btmCont">
+							<div class="panel">
+								<div class="panel-body">
+				  					<h4 class="trend-title">Jaipur</h4>
+								  	<ul class="listMainCont">
+								  	{% for trends in Jaipur %}
+								  		<li><a href="https://twitter.com/search?q={{ trends['trend_topic'] | replace("#", "", 1) }}" data-toggle="modal" data-target="#{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}">{{ trends['trend_topic'] }}</a></li>
+ 
+											<!-- Modal -->
+											<div id="{{ trends['trend_topic'] | replace(" ", "", 20) | replace("#", "", 1) }}" class="modal fade" role="dialog">
+											  <div class="modal-dialog">
+
+											    <!-- Modal content-->
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">{{ trends['trend_topic'] }}</h4>
+											      </div>
+											      <div class="modal-body">
+											        <p class="influencer">what Influencers said :</p>
+											        {% for i in trends['influencers'] %}
+											        	<a href="https://twitter.com/search?q={{ i['screen_name'] }}">@{{ i['screen_name']}}</a>:  <p class="description">{{ i['tweet'] }}</p>
+											        {% endfor %}	
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+
+								  	{% endfor %}
+									</ul>
+								 </div>
+							</div>
+
+						</section>
+ 					</div>
+				</div>
+
+ 		  	</div>
+
+		</div>				
+
+
+
+
+	
+</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+ 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
